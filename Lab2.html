@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title> лабораторная 2 </title>
+    <style>
+        @media (max-width: 500px) {
+            
+        }
+        body{
+            background-color: rgb(144, 238, 144);
+        }
+
+        h2{
+            text-align: center;
+        }
+        .head_container{
+            display: flex;
+        }
+        .nav_cont{
+            display: flex;
+            position: absolute;
+            left: 300px;
+            top: 0px;
+            width: 80%;
+        }
+        .blockA{
+            background-color: rgb(51, 203, 51);
+            height: 80px;
+            width: 100%;
+            align-items: center;
+            margin: 10px;
+            border-radius: 20px;
+        }
+        .main_container{
+            display: flex;
+            margin-top: 50px;
+            width: 70%;
+            background-color: rgb(51, 203, 51);
+            flex-direction: column;
+        }
+        .block_name{
+            background-color: lightgrey;
+            width: 400px;
+            height: 120px;
+            align-items: center;
+            margin-left: 30%;
+            border-radius: 20px;
+        }
+        .block_image{
+            margin-left: 100px;
+            margin-top: 10px;
+        }
+        .price_block{
+            position: absolute;
+            background-color: lightgray;
+            text-align: center;
+            top: 300px;
+            left: 900px;
+            width: 300px;
+            height: 450px;
+            border-radius: 20px;
+        }
+        
+        .advertising_part1{
+            position: absolute;
+            background-color: lightgray;
+            text-align: center;
+            top: 300px;
+            left: 1400px;
+            width: 500px;
+            border-radius: 20px;
+        }
+        .advertising_part2{
+            position: absolute;
+            background-color: lightgray;
+            text-align: center;
+            top: 500px;
+            left: 1400px;
+            width: 500px;
+            border-radius: 20px;
+        }
+        .reviews_cont{
+            background-color: rgb(51, 203, 51);
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+            justify-content: space-between;
+            width: 70%;
+            top: 900px;
+        }
+        .review{
+            width: 30%;
+            background-color: lightgray;
+            text-align: center;
+            border-radius: 20px;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="head_container">
+            <h1> Поваренок </h1>
+            <img src="ogo.png" height = "100px" width= "100px"
+                alt="картинка кастрюли" 
+            >
+        </div>
+        <nav>
+            <div class="nav_cont">
+                <div class="blockA">
+                    <h2>На главную</h2>
+                </div>
+                <div class="blockA">
+                    <h2>Товары</h2>
+                </div>
+                <div class="blockA">
+                    <h2>О нас</h2>
+                </div>
+                <div class="blockA">
+                    <h2>Контакты</h2>
+                </div>
+                <div class="blockA">
+                    <h2>Продукты</h2>
+                </div>
+                <div class="blockA">
+                    <h2>???</h2>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    
+    <main>
+        <article>
+            <section>
+                <div class="main_container">
+                    <div class="block_name">
+                        <h2>Черпало боевое</h2 >
+                    </div>
+                    <div class="block_image">
+                        <img src="1.png" height = "600px" width = "600px">
+                    </div>
+                </div>
+                <div class="price_block">
+                    <h3>Этот уникальный инструмент станет верным помощником как в походе, так и в домашних условиях.
+                        Его размеры и заточенная правая часть помогут вам нарезать и мешать, не меняя каждый раз нож и ложку.
+                        Черпало боевое достаточно крепкое для очистки пути и собственной защиты, а шипы на нижней части позволят
+                        справится даже с самым крепким противником. Блогодаря высокачественной стали его не придется часто затачивать.
+                        Особенно надо отметить его зазубренную левую часть, позволяющую вам срубать даже саме крепкие породы древесины!
+                    </h3>
+                </div>
+            </section>
+        </article>
+        <aside>
+            <div class="advertising_part1">
+                <h3>Приобретите черпало и получите скидку до 50% на набор кастрюль "Кастрюли Защитные" в подарок!</h3>
+            </div>
+            <div class="advertising_part2">
+                <h3>Для тех, кто предпочитает размер больше, у нас появился в асортисенте Черпало Боевое Двуручное. До 30.3.2025 
+                    действует акция на бесплатные ножны, не упустите шанс!
+                </h3>
+            </div>
+        </aside>
+        <aside>
+            <div class="reviews_cont">
+                <h2> Отзывы покупателей</h2>
+                <div class="review">
+                    <h3><q>Купил и не жалею. Никого не жалею. 
+                           Служит верой и правдой уже год. Использую на изноc и затачивал всего 4 раза, качество отличное, рекомендую
+                    </q></h3>
+                </div>
+                <div class="review">
+                    <h3><q>По началу сомневался и долго думал покупать или нет. Казалось крайне сомнительная покупка, ведь можно купить всо тоже по отдельности.
+                            Но после того как несколько раз пришлось ночевать под открытым небом, из-за того, что забыл топорик, понял что такая цена оправдана.
+                            Вот уже 2 года пользуюсь и не могу нарадоваться, однозначно рекомендую!
+                    </q></h3>
+                </div>
+            </div>
+        </aside>
+    </main>
+  
+
+
+</body>
+</html>
