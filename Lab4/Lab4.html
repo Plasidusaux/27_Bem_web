@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная 4</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="cookie.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="head_container">
+            <h1>Поваренок</h1>
+            <img src="ogo.png" height="100px" width="100px" alt="картинка кастрюли">
+            <button id="theme-toggle">Тёмная тема</button>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <section>
+                <div class="main_container">
+                    <div class="block_name">
+                        <h2>Черпало боевое</h2>
+                    </div>
+                    <div class="block_image">
+                        <img src="1.png" height="600px" width="600px">
+                    </div>
+                </div>
+                <div class="price_block">
+                    <h3>Этот уникальный инструмент станет верным помощником как в походе, так и в домашних условиях.
+                        Его размеры и заточенная правая часть помогут вам нарезать и мешать, не меняя каждый раз нож и ложку.
+                        Черпало боевое достаточно крепкое для очистки пути и собственной защиты, а шипы на нижней части позволят
+                        справится даже с самым крепким противником. Благодаря высококачественной стали его не придется часто затачивать.
+                        Особенно надо отметить его зазубренную левую часть, позволяющую вам срубать даже самые крепкие породы древесины!
+                    </h3>
+                </div>
+            </section>
+        </article>
+        <aside>
+            <div class="advertising_part1">
+                <h3>Приобретите черпало и получите скидку до 50% на набор кастрюль "Кастрюли Защитные" в подарок!</h3>
+            </div>
+            <div class="advertising_part2">
+                <h3>Для тех, кто предпочитает размер больше, у нас появился в ассортименте Черпало Боевое Двуручное. До 30.3.2025
+                    действует акция на бесплатные ножны, не упустите шанс!
+                </h3>
+            </div>
+        </aside>
+        <aside>
+            <div class="reviews_cont">
+                <h2>Отзывы покупателей</h2>
+                <div id="reviews-list">
+                </div>
+                <div class="review-form">
+                    <h3>Добавить отзыв</h3>
+                    <input type="text" id="review-name" placeholder="Ваше имя">
+                    <textarea id="review-text" placeholder="Ваш отзыв"></textarea>
+                    <input type="number" id="review-rating" placeholder="Оценка (1-5)" min="1" max="5">
+                    <input type="file" id="review-image" accept="image/*">
+                    <button onclick="addReview()">Добавить отзыв</button>
+                    <select id="sort-reviews" onchange="sortReviews()">
+                        <option value="date">Сортировать по дате</option>
+                        <option value="rating">Сортировать по оценке</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script>
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-theme');
+        });
+
+        function addReview() {
+            const name = document.getElementById('review-name').value;
+            const text = document.getElementById('review-text').value;
+            const rating = document.getElementById('review-rating').value;
+
+            if (name && text && rating) {
+                const review = { name, text, rating, image: image ? URL.createObjectURL(image) : null, date: new Date() };
+                saveReviewToCookie(review);
+                displayReview(review);
+            } else {
+                alert('Пожалуйста, заполните все поля.');
+            }
+        }
+
+        function displayReview(review) {
+            const reviewsList = document.getElementById('reviews-list');
+            const reviewElement = document.createElement('div');
+            reviewElement.className = 'review';
+            reviewElement.innerHTML = `
+                <h3>${review.name}</h3>
+                <p>${review.text}</p>
+                <p>Оценка: ${review.rating}</p>
+                <p>Дата: ${review.date.toLocaleString()}</p>
+            `;
+            reviewsList.appendChild(reviewElement);
+        }
+
+        function sortReviews() {
+            const sortBy = document.getElementById('sort-reviews').value;
+            const reviews = Array.from(document.getElementById('reviews-list').children);
+            reviews.sort((a, b) => {
+                if (sortBy === 'date') {
+                    return new Date(b.querySelector('p:last-child').textContent.replace('Дата: ', '')) -
+                           new Date(a.querySelector('p:last-child').textContent.replace('Дата: ', ''));
+                } else if (sortBy === 'rating') {
+                    return parseInt(b.querySelector('p:nth-child(3)').textContent.replace('Оценка: ', '')) -
+                           parseInt(a.querySelector('p:nth-child(3)').textContent.replace('Оценка: ', ''));
+                }
+            });
+            const reviewsList = document.getElementById('reviews-list');
+            reviewsList.innerHTML = '';
+            reviews.forEach(review => reviewsList.appendChild(review));
+        }
+
+        function saveReviewToCookie(review) {
+            const reviews = getReviewsFromCookie();
+            reviews.push(review);
+            document.cookie = `reviews=${JSON.stringify(reviews)}; path=/`;
+        }
+
+        function getReviewsFromCookie() {
+            const cookie = document.cookie.split('; ').find(row => row.startsWith('reviews='));
+            return cookie ? JSON.parse(cookie.split('=')[1]) : [];
+        }
+
+        window.onload = function() {
+            const reviews = getReviewsFromCookie();
+            reviews.forEach(review => displayReview(review));
+        };
+    </script>
+</body>
+
+</html>

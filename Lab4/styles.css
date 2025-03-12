@@ -1,0 +1,149 @@
+body {
+    background-color: rgb(144, 238, 144);
+    color: black;
+}
+
+body.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-theme .blockA {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-theme .main_container {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-theme .block_name {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-theme .price_block {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-theme .advertising_part1,
+body.dark-theme .advertising_part2 {
+    background-color: #555;
+    color: #fff;
+}
+
+body.dark-theme .reviews_cont {
+    background-color: #444;
+    color: #fff;
+}
+
+body.dark-theme .review {
+    background-color: #555;
+    color: #fff;
+}
+
+h2 {
+    text-align: center;
+}
+
+.head_container {
+    display: flex;
+}
+
+.nav_cont {
+    display: flex;
+    position: absolute;
+    left: 300px;
+    top: 0px;
+    width: 80%;
+}
+
+.blockA {
+    background-color: rgb(51, 203, 51);
+    height: 80px;
+    width: 100%;
+    align-items: center;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.main_container {
+    display: flex;
+    margin-top: 50px;
+    width: 70%;
+    background-color: rgb(51, 203, 51);
+    flex-direction: column;
+}
+
+.block_name {
+    background-color: lightgrey;
+    width: 400px;
+    height: 120px;
+    align-items: center;
+    margin-left: 30%;
+    border-radius: 20px;
+}
+
+.block_image {
+    margin-left: 100px;
+    margin-top: 10px;
+}
+
+.price_block {
+    position: absolute;
+    background-color: lightgray;
+    text-align: center;
+    top: 300px;
+    left: 900px;
+    width: 300px;
+    height: 450px;
+    border-radius: 20px;
+}
+
+.advertising_part1 {
+    position: absolute;
+    background-color: lightgray;
+    text-align: center;
+    top: 300px;
+    left: 1400px;
+    width: 500px;
+    border-radius: 20px;
+}
+
+.advertising_part2 {
+    position: absolute;
+    background-color: lightgray;
+    text-align: center;
+    top: 500px;
+    left: 1400px;
+    width: 500px;
+    border-radius: 20px;
+}
+
+.reviews_cont {
+    background-color: rgb(51, 203, 51);
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-between;
+    width: 70%;
+    top: 900px;
+}
+
+.review {
+    width: 30%;
+    background-color: lightgray;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.review-form {
+    margin-top: 20px;
+}
+
+.review-form input, .review-form textarea, .review-form select {
+    display: block;
+    margin: 10px 0;
+}
